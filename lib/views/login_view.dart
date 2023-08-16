@@ -28,10 +28,7 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-    appBar: AppBar(title: const Text('Login'),
-    ),
-    body: Column(
+    return Column(
       children: [
         TextField(
           controller: _email,
@@ -64,7 +61,6 @@ class _LoginViewState extends State<LoginView> {
           }, child: const Text('Login'),
         ),
       ],
-    ),
     );
   }
 }
