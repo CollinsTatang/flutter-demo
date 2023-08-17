@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatefulWidget {
@@ -28,7 +27,10 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Scaffold(
+        appBar: AppBar(title: const Text('Login'),
+    ),
+    body: Column(
       children: [
         TextField(
           controller: _email,
@@ -48,19 +50,16 @@ class _LoginViewState extends State<LoginView> {
           onPressed: () async {
             final email = _email.text;
             final password = _password.text;
-            try {
-              final userCredential =
-              await FirebaseAuth.instance.signInWithEmailAndPassword(
-                  email: email,
-                  password: password
-              );
-              print(userCredential);
-            } catch (e) {
-              print(e.runtimeType);
-            }
+
           }, child: const Text('Login'),
         ),
+        TextButton(
+          onPressed: () {
+            Navigator.of(context).pushNamedAndRemoveUntil('/register/', (route) => false);
+          }
+          , child: const Text('Not registered yet? Register here'),
+        ),
       ],
-    );
+    ),);
   }
 }

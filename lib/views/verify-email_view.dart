@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart' show BuildContext, Column, State, StatefulWidget, Text, TextButton, Widget;
+import 'package:flutter/material.dart' show AppBar, BuildContext, Column, Scaffold, State, StatefulWidget, Text, TextButton, Widget;
 
 class VerifyEmailView extends StatefulWidget {
   const VerifyEmailView({super.key});
@@ -12,10 +12,14 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
+    return Scaffold(
+        appBar: AppBar(title: const Text('Verify email'),
+    ),
+    body: Column(children: [
           const Text('Please verify your email'),
           TextButton(onPressed: () {}, child: const Text('Send email verification'),)
         ],
+    ),
     );
   }
 }

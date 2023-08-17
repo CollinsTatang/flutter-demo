@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/views/login_view.dart';
 import 'package:flutter_app/views/register_view.dart';
@@ -13,6 +12,11 @@ void main() {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.purpleAccent),
         ),
         home: const HomePage(),
+        routes: {
+          '/login/': (context) => const LoginView(),
+          '/register/': (context) => const RegisterView(),
+          '/verify/': (context) => const VerifyEmailView(),
+        },
       ),
   );
 }
@@ -27,15 +31,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: const Text('Propelond'),
-        ),
-        body: FutureBuilder(
+    return  FutureBuilder(
           builder: (context, snapshot) {
-           return const RegisterView();
-
+           return const LoginView();
           },
-        ),
     );
   }
 }
