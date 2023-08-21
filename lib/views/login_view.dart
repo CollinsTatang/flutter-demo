@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/constants/routes.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -50,12 +51,12 @@ class _LoginViewState extends State<LoginView> {
           onPressed: () async {
             final email = _email.text;
             final password = _password.text;
-
+            Navigator.of(context).pushNamedAndRemoveUntil(notesRoute, (route) => false,);
           }, child: const Text('Login'),
         ),
         TextButton(
           onPressed: () {
-            Navigator.of(context).pushNamedAndRemoveUntil('/register/', (route) => false);
+            Navigator.of(context).pushNamedAndRemoveUntil(registerRoute, (route) => false,);
           }
           , child: const Text('Not registered yet? Register here'),
         ),
