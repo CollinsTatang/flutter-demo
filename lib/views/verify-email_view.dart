@@ -1,4 +1,6 @@
-import 'package:flutter/material.dart' show AppBar, BuildContext, Column, Scaffold, State, StatefulWidget, Text, TextButton, Widget;
+import 'package:flutter/material.dart' show AppBar, BuildContext, Column, Navigator, Scaffold, State, StatefulWidget, Text, TextButton, Widget;
+
+import '../constants/routes.dart';
 
 class VerifyEmailView extends StatefulWidget {
   const VerifyEmailView({super.key});
@@ -17,7 +19,9 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
     ),
     body: Column(children: [
           const Text('Please verify your email'),
-          TextButton(onPressed: () {}, child: const Text('Send email verification'),)
+          TextButton(onPressed: () {
+            Navigator.of(context).pushNamedAndRemoveUntil(notesRoute, (route) => false,);
+          }, child: const Text('Send email verification'),)
         ],
     ),
     );

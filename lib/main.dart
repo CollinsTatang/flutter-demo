@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
 enum MenuAction { logout }
 
 class NotesView extends StatefulWidget {
-  const NotesView({super.key});
+  const NotesView({Key? key}) : super(key: key);
 
   @override
   State<NotesView> createState() => _NotesViewState();
@@ -77,7 +77,7 @@ class _NotesViewState extends State<NotesView> {
           },)
         ],
       ),
-      body: const Text('Hello World'),
+      body: const Text('Done!'),
     );
   }
 }
