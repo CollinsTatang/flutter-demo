@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../constants/routes.dart';
-import '../main.dart';
+import '../../constants/routes.dart';
+import '../../main.dart';
 
 enum MenuAction { logout }
 
@@ -18,6 +18,11 @@ class _NotesViewState extends State<NotesView> {
       appBar: AppBar(
         title: const Text('Your Notes'),
         actions: [
+          IconButton(onPressed: () {
+            Navigator.of(context).pushNamed(newNoteRoute);
+          },
+              icon: const Icon(Icons.add)
+          ),
           PopupMenuButton<MenuAction>(
             onSelected: (value) async {
               switch (value) {
